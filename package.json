@@ -4,7 +4,7 @@
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test:jest": "jest --coverage"
   },
   "repository": {
     "type": "git",
