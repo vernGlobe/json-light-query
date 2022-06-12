@@ -1,7 +1,7 @@
 {
   "name": "@vernglobe/json-light-query",
   "version": "1.0.0",
-  "description": "query to json object/array and return summary of data such as total value of specified attributes.",
+  "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "index.js",
   "scripts": {
     "test": "exit 0"
