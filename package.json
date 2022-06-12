@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
-    "@vernglobe:registry": "https://registry.npmjs.org"
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "jest": "^28.1.1"
