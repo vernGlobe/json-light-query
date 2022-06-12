@@ -20,6 +20,6 @@
   },
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
-    "@vernglobe:registry": "https://npm.pkg.github.com"
+    "@YOUR-USERNAME:registry": "https://npm.pkg.github.com"
   }
 }
