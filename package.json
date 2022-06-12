@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/vernGlobe/json-light-query/issues"
   },
-  "homepage": "https://github.com/vernGlobe/json-light-query#readme"
+  "homepage": "https://github.com/vernGlobe/json-light-query#readme",
+  "publishConfig": {
+    "@vernglobe:registry": "https://npm.pkg.github.com"
+  }
 }
