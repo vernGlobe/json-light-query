@@ -21,5 +21,8 @@
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
     "@YOUR-USERNAME:registry": "https://npm.pkg.github.com"
+  },
+  "devDependencies": {
+    "jest": "^28.1.1"
   }
 }
