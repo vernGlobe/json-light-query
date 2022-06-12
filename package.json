@@ -1,5 +1,5 @@
 {
-  "name": "@vernglobe/json-light-query",
+  "name": "json-light-query",
   "version": "1.0.0",
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "index.js",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
-    "@vernglobe:registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
     "jest": "^28.1.1"
