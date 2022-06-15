@@ -55,7 +55,7 @@ const formatTotalByObj = (jsonObjResult: any, reqAttr: any) => {
     return resp;
 };
 
-export function getTotalByObjAttr(jsonObjArr: any, reqAttrOperation: string, reqAttrId: string, reqAttrVal: string, defaultFormat: boolean = true) {
+export function getTotalByObjAttr(jsonObjArr: any, reqAttrOperation: string, reqAttrId: string, reqAttrVal: string, defaultFormat: boolean = true): any {
     const { errMsg,  jsonObjArrClone } = validateReqParams(jsonObjArr);
 
     let resp: any = null;
