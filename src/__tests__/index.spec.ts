@@ -72,7 +72,6 @@ describe("Positive result: test json light query!", () => {
 		};
 
 		const resp = getTotalOrAverageByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, true);
-		console.log({resp});
 		expect(resp).toEqual(expectedResult);
 	});
 });
