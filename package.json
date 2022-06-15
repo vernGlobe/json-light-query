@@ -1,6 +1,6 @@
 {
-  "name": "@vernglobe/json-light-query",
-  "version": "1.0.1",
+  "name": "json-light-query",
+  "version": "1.0.4",
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "dist/index.js",
   "scripts": {
@@ -32,7 +32,8 @@
     "query",
     "json-light-query",
     "light-query",
-    "vernglobe"
+    "vernglobe",
+    "vern"
   ],
   "author": "vernglobe",
   "license": "ISC",
@@ -56,6 +57,7 @@
     "fsevents": "^2.3.2"
   },
   "dependencies": {
-    "nano": "^10.0.0"
+    "nano": "^10.0.0",
+    "tslib": "^2.4.0"
   }
 }
