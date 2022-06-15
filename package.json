@@ -1,6 +1,6 @@
 {
   "name": "json-light-query",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "dist/index.js",
   "scripts": {
@@ -52,12 +52,5 @@
     "jest": "^28.1.1",
     "ts-jest": "^28.0.4",
     "typescript": "^4.7.3"
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
-  },
-  "dependencies": {
-    "nano": "^10.0.0",
-    "tslib": "^2.4.0"
   }
 }
