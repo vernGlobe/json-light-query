@@ -9,6 +9,7 @@ To get total attribute value from same attribute id in json array(object/string)
 - AVERAGE: Please use keyword "avg" for param "reqAttrOperation".
 
 ```ts
+const { getTotalByObjAttr } = require("json-light-query");
 
 const reqAttrId = "nameOfUniqueId";
 const reqAttrVal = "nameOfAttributeToGetTotal";
@@ -23,7 +24,15 @@ const jsonArraySample = [{
   "anyAdditonalAttributeIsFine": "1002",
   "nameOfAttributeToGetTotal": 7.21
   }];
-// or const jsonArraySample ='[{"uniqueId":"111111113","attrSeq":"1001","price":10.98},{"uniqueId":"111111113","attrSeq":"1002","price":7.21}]'
+
+/* 
+//or 
+const reqAttrId = "uniqueId";
+const reqAttrVal = "price";
+const reqAttrOperation = "sum";
+const jsonArraySample ='[{"uniqueId":"111111113","attrSeq":"1001","price":10.98},{"uniqueId":"111111113","attrSeq":"1002","price":7.21}]';
+
+*/
 
 const resp = getTotalByObjAttr(jsonArraySample, reqAttrOperation, reqAttrId, reqAttrVal, false);
 
