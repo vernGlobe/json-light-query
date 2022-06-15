@@ -5,8 +5,8 @@ To get total attribute value from same attribute id in json array(object/string)
 # Usage
 
 1 - How to get the TOTAL/AVERAGE value from following json array, 
-TOTAL: Please use keyword "sum" for param "reqAttrOperation".
-AVERAGE: Please use keyword "avg" for param "reqAttrOperation".
+\n TOTAL: Please use keyword "sum" for param "reqAttrOperation".
+\n AVERAGE: Please use keyword "avg" for param "reqAttrOperation".
 
 ```ts
 
