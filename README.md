@@ -1,10 +1,12 @@
 # json-light-query
 
-To get total attribute value from same attribute id in json object/array.
+To get total attribute value from same attribute id in json array(object/string).
 
 # Usage
 
-How to get total value from following json array.
+1 - How to get the TOTAL/AVERAGE value from following json array, 
+TOTAL: Please use keyword "sum" for param "reqAttrOperation".
+AVERAGE: Please use keyword "avg" for param "reqAttrOperation".
 
 ```ts
 
@@ -21,6 +23,7 @@ const jsonArraySample = [{
   "anyAdditonalAttributeIsFine": "1002",
   "nameOfAttributeToGetTotal": 7.21
   }];
+// or const jsonArraySample ='[{"uniqueId":"111111113","attrSeq":"1001","price":10.98},{"uniqueId":"111111113","attrSeq":"1002","price":7.21}]'
 
 const resp = getTotalByObjAttr(jsonArraySample, reqAttrOperation, reqAttrId, reqAttrVal, false);
 

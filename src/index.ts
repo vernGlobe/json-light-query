@@ -1,12 +1,13 @@
 
 
-const validateReqParams = (jsonObjArr: any): string => {
+const validateReqParams = (jsonObjArr: any): any => {
     let errMsg: string = "";
+    let jsonObjArrClone: any = jsonObjArr;
     try {
-        if (typeof jsonObjArr === "string") {
-            jsonObjArr = JSON.parse(jsonObjArr);
+        if (typeof jsonObjArrClone === "string") {
+            jsonObjArrClone = JSON.parse(jsonObjArr);
         }
-        if (typeof jsonObjArr.length === "undefined" || jsonObjArr.length <= 0) {
+        if (typeof jsonObjArrClone.length === "undefined" || jsonObjArrClone.length <= 0) {
             errMsg = "The input format not a valid json array(empty array)!"
         }
         
@@ -14,51 +15,61 @@ const validateReqParams = (jsonObjArr: any): string => {
         errMsg = "The input format not a valid json array!";
     }
 
-    return errMsg;
+    return { errMsg,  jsonObjArrClone };
 };
 
-const getValueByObjAttrOperation = (count: number, reqAttr: any, accumulate: any, row: any): number => {
+const getTotalValueByObjAttr = (count: number, reqAttr: any, accumulate: any, row: any): number => {
 
-    switch(reqAttr.reqAttrOperation) {
-        case "sum":
-            if (row[reqAttr.reqAttrVal] && row[reqAttr.reqAttrId]) {
-                if (accumulate[reqAttr.reqAttrId] === row[reqAttr.reqAttrId]) {
-                    accumulate[reqAttr.reqAttrVal] = Number(accumulate[reqAttr.reqAttrVal]) + Number(row[reqAttr.reqAttrVal]);
-                    count++;
-                } 
-            } 
-            break;
-        default:
-            // do nothing
-    }
-    
+    if (row[reqAttr.reqAttrVal] && row[reqAttr.reqAttrId]) {
+        if (accumulate[reqAttr.reqAttrId] === row[reqAttr.reqAttrId]) {
+            accumulate[reqAttr.reqAttrVal] = Number(accumulate[reqAttr.reqAttrVal]) + Number(row[reqAttr.reqAttrVal]);
+            count++;
+        } 
+    } 
+
     return count;
 };
 
-const formatTotalByObjResp = (jsonObjResult: any, reqAttr: any) => {
-    return {
-        "id": jsonObjResult[reqAttr.reqAttrId],
-        "total": jsonObjResult[reqAttr.reqAttrVal]
+const formatTotalByObj = (jsonObjResult: any, reqAttr: any) => {
+    const totalVal = jsonObjResult[reqAttr.reqAttrVal];
+    const avgVal = jsonObjResult[reqAttr.reqAttrVal]/ (reqAttr.count + 1);
+    let resp = jsonObjResult;
+    if (!reqAttr.defaultFormat) {
+        if (reqAttr.reqAttrOperation === "avg") {
+            resp = {
+                "id": jsonObjResult[reqAttr.reqAttrId],
+                "average": avgVal
+            }
+        } else {
+            resp = {
+                "id": jsonObjResult[reqAttr.reqAttrId],
+                "total": totalVal
+            }
+        }
+    } else {
+        if (reqAttr.reqAttrOperation === "avg") {
+            jsonObjResult[reqAttr.reqAttrVal] = avgVal;
+        }
     }
+
+    return resp;
 };
 
 export function getTotalByObjAttr(jsonObjArr: any, reqAttrOperation: string, reqAttrId: string, reqAttrVal: string, defaultFormat: boolean = true) {
-    const errMsg = validateReqParams(jsonObjArr);
+    const { errMsg,  jsonObjArrClone } = validateReqParams(jsonObjArr);
+
     let resp: any = null;
     if (errMsg) {
         return errMsg;
     }
     let count: number = 0;
-    let occurences = jsonObjArr.reduce((accumulate: any, row: any): any => {
-        count = getValueByObjAttrOperation(count, { reqAttrOperation, reqAttrId, reqAttrVal }, accumulate, row);
+    let occurences = jsonObjArrClone.reduce((accumulate: any, row: any): any => {
+        count = getTotalValueByObjAttr(count, { reqAttrOperation, reqAttrId, reqAttrVal }, accumulate, row);
         return accumulate;
     });
 
     if (count !== 0) {
-        resp = occurences;
-        if (!defaultFormat) {
-            resp = formatTotalByObjResp(occurences, {reqAttrId, reqAttrVal});
-        }
+        resp = formatTotalByObj(occurences, {defaultFormat, reqAttrId, reqAttrVal, reqAttrOperation, count});
     }
 
     return resp;
