@@ -1,4 +1,4 @@
-import { getTotalByObjAttr } from "../index";
+import { getTotalOrAverageByObjAttr } from "../index";
 import { jsonObListPatern1, jsonObListPatern2, jsonObListPatern3 } from "./mock-payload/json-obj-req";
 
 describe("Positive result: test json light query!", () => {
@@ -15,7 +15,7 @@ describe("Positive result: test json light query!", () => {
 			id: "111111111",
 			total: 60
 		};
-		const resp = getTotalByObjAttr(jsonObListPatern1, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr(jsonObListPatern1, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -28,7 +28,7 @@ describe("Positive result: test json light query!", () => {
 			id: "111111113",
 			total: 18.19
 		};
-		const resp = getTotalByObjAttr(jsonObListPatern2, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr(jsonObListPatern2, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -42,7 +42,7 @@ describe("Positive result: test json light query!", () => {
 			total: 18.19
 		};
 
-		const resp = getTotalByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -56,7 +56,7 @@ describe("Positive result: test json light query!", () => {
 			average: 9.095
 		};
 
-		const resp = getTotalByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -71,7 +71,7 @@ describe("Positive result: test json light query!", () => {
 			price: 9.095
 		};
 
-		const resp = getTotalByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, true);
+		const resp = getTotalOrAverageByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, true);
 		console.log({resp});
 		expect(resp).toEqual(expectedResult);
 	});
@@ -89,7 +89,7 @@ describe("Negative result: test json light query!", () => {
 
 		const expectedResult = "The input format not a valid json array(empty array)!";
             
-		const resp = getTotalByObjAttr({}, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr({}, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -100,7 +100,7 @@ describe("Negative result: test json light query!", () => {
 
 		const expectedResult = "The input format not a valid json array!";
             
-		const resp = getTotalByObjAttr(null, reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr(null, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 
@@ -111,7 +111,7 @@ describe("Negative result: test json light query!", () => {
 
 		const expectedResult = "The input format not a valid json array!";
             
-		const resp = getTotalByObjAttr("", reqAttrOperation, reqAttrId, reqAttrVal, false);
+		const resp = getTotalOrAverageByObjAttr("", reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
 });

@@ -9,7 +9,7 @@ Get the total/average value from json array(object/string).
 - AVERAGE: keyword "avg" for param "reqAttrOperation".
 
 ```ts
-const { getTotalByObjAttr } = require("json-light-query");
+const { getTotalOrAverageByObjAttr } = require("json-light-query");
 
 const reqAttrId = "nameOfUniqueId";
 const reqAttrVal = "nameOfAttributeToGetTotal";
@@ -34,7 +34,7 @@ const jsonArraySample ='[{"uniqueId":"111111113","attrSeq":"1001","price":10.98}
 
 */
 
-const resp = getTotalByObjAttr(jsonArraySample, reqAttrOperation, reqAttrId, reqAttrVal, false);
+const resp = getTotalOrAverageByObjAttr(jsonArraySample, reqAttrOperation, reqAttrId, reqAttrVal, false);
 
 ```
 
