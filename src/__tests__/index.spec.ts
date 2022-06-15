@@ -59,6 +59,22 @@ describe("Positive result: test json light query!", () => {
 		const resp = getTotalByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, false);
 		expect(resp).toEqual(expectedResult);
 	});
+
+	test("when getting the average by uniqueId and price then return the average value(default format=true).", () =>{
+		const reqAttrId = "uniqueId";
+		const reqAttrVal = "price";
+		const reqAttrOperation = "avg";
+
+		const expectedResult = {
+			uniqueId: "111111113",
+			attrSeq: "1001",
+			price: 9.095
+		};
+
+		const resp = getTotalByObjAttr(jsonObListPatern3, reqAttrOperation, reqAttrId, reqAttrVal, true);
+		console.log({resp});
+		expect(resp).toEqual(expectedResult);
+	});
 });
 
 describe("Negative result: test json light query!", () => {

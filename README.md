@@ -1,12 +1,12 @@
 # json-light-query
 
-To get total attribute value from same attribute id in json array(object/string).
+Get the total/average value from json array(object/string).
 
 # Usage
 
 1 - How to get the TOTAL/AVERAGE value from following json array, 
-- TOTAL: Please use keyword "sum" for param "reqAttrOperation".
-- AVERAGE: Please use keyword "avg" for param "reqAttrOperation".
+- TOTAL: keyword "sum" for param "reqAttrOperation".
+- AVERAGE: keyword "avg" for param "reqAttrOperation".
 
 ```ts
 const { getTotalByObjAttr } = require("json-light-query");
@@ -50,10 +50,10 @@ The above method will return the total value of "nameOfAttributeToGetTotal"
 ```
 
 
-# Installing
+# Installation
 
-Install the latest version, run:
+```ts
 
-## npm
+$ npm i json-light-query
 
-npm i json-light-query
+```

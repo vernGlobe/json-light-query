@@ -1,6 +1,6 @@
 {
   "name": "json-light-query",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
   "main": "dist/index.js",
   "scripts": {
@@ -20,8 +20,8 @@
       "js"
     ],
     "testPathIgnorePatterns": [
-      "./src/__tests__/mock-payload/",
-      "./dist/"
+      "src/__tests__/mock-payload/",
+      "dist/"
     ]
   },
   "repository": {
