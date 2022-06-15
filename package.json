@@ -1,18 +1,38 @@
 {
-  "name": "json-light-query",
-  "version": "1.0.0",
+  "name": "@vernglobe/json-light-query",
+  "version": "1.0.1",
   "description": "query to jsonobject/array and return summary of data such as total value of specified attributes.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "start": "tsc && node dist/index.js",
+    "lint": "eslint . --ext .ts",
     "test:jest": "jest --coverage",
     "test": "exit 0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testPathIgnorePatterns": [
+      "./src/__tests__/mock-payload/",
+      "./dist/"
+    ]
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vernGlobe/json-light-query.git"
   },
   "keywords": [
-    "query"
+    "query",
+    "json-light-query",
+    "light-query",
+    "vernglobe"
   ],
   "author": "vernglobe",
   "license": "ISC",
@@ -21,12 +41,21 @@
   },
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
-    "@vernglobe:registry": "https://npm.pkg.github.com/"
+    "@vernglobe:registry": "https://registry.npmjs.org/"
   },
   "devDependencies": {
-    "jest": "^28.1.1"
+    "@types/jest": "^28.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.27.1",
+    "@typescript-eslint/parser": "^5.27.1",
+    "eslint": "^8.17.0",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.4",
+    "typescript": "^4.7.3"
   },
   "optionalDependencies": {
     "fsevents": "^2.3.2"
+  },
+  "dependencies": {
+    "nano": "^10.0.0"
   }
 }
