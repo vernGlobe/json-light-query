@@ -42,7 +42,7 @@
   },
   "homepage": "https://github.com/vernGlobe/json-light-query#readme",
   "publishConfig": {
-    "@vernglobe:registry": "https://npm.pkg.github.com/"
+    "registry":"https://npm.pkg.github.com"
   },
   "devDependencies": {
     "@types/jest": "^28.1.1",
