@@ -1,3 +1,6 @@
 .npmrc
-.github
 coverage
+tsconfig.json
+src
+dist/__tests__/mock-payload/
+.github
