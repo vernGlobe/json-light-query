@@ -4,3 +4,4 @@ tsconfig.json
 src
 dist/__tests__/mock-payload/
 .github
+.bak
